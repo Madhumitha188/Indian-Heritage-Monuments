@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Creator - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="fas fa-pencil-alt"></i> Content Creator</h2>
+        <p>Create & Share</p>
+      </div>
+      <ul class="sidebar-nav">
+        <li class="active"><a href="home.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="" class="nav-link"><i class="fas fa-upload"></i> Upload Content</a></li>
+        <li><a href="" class="nav-link"><i class="fas fa-vr-cardboard"></i> Virtual Tours</a></li>
+        <li><a href="" class="nav-link"><i class="fas fa-photo-video"></i> Multimedia Resources</a></li>
+        <li><a href="" class="nav-link"><i class="fas fa-user-circle"></i> Profile</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Header -->
+      <header class="content-header">
+        <div class="header-content">
+          <h1>Welcome, Content Creator</h1>
+          <p>Upload educational content, images, videos, and prepare virtual tours.</p>
+        </div>
+        <div class="user-info">
+          <div class="user-avatar">
+            <i class="fas fa-user-edit"></i>
+          </div>
+          <span id="username">Content Creator Dashboard</span>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h2>Create Authentic Cultural Content</h2>
+            <p>Share knowledge about monuments, heritage, and traditions through engaging media.</p>
+            <div class="hero-actions">
+              <button class="btn-primary btn-large" >
+                <i class="fas fa-upload"></i> Upload New Content
+              </button>
+              <button class="btn-secondary" >
+                <i class="fas fa-vr-cardboard"></i> Prepare Virtual Tour
+              </button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <i class="fas fa-globe fa-6x"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Access -->
+      <section class="quick-access">
+        <h2>Quick Actions</h2>
+        <div class="access-grid">
+          <div class="access-card" >
+            <div class="access-icon">
+              <i class="fas fa-file-upload"></i>
+            </div>
+            <h3>Upload Content</h3>
+            <p>Add images, videos, or text resources</p>
+            <span class="access-badge">New</span>
+          </div>
+          <div class="access-card" >
+            <div class="access-icon">
+              <i class="fas fa-vr-cardboard"></i>
+            </div>
+            <h3>Virtual Tours</h3>
+            <p>Create or update 360° tour experiences</p>
+            <span class="access-badge">Ongoing</span>
+          </div>
+          <div class="access-card" >
+            <div class="access-icon">
+              <i class="fas fa-photo-video"></i>
+            </div>
+            <h3>Multimedia Library</h3>
+            <p>Manage uploaded images, videos, AR/VR assets</p>
+            <span class="access-badge">Library</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Submissions -->
+      <section class="recent-activity">
+        <h2>Recent Submissions</h2>
+        <div class="activity-timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="activity-icon">
+                <i class="fas fa-image"></i>
+              </div>
+              <div class="activity-details">
+                <h4>Uploaded Image: Taj Mahal</h4>
+                <p>Added high-res images for the virtual tour</p>
+                <span class="activity-time">2 hours ago</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="activity-icon">
+                <i class="fas fa-video"></i>
+              </div>
+              <div class="activity-details">
+                <h4>Uploaded Video: Jaipur Fort Tour</h4>
+                <p>360° video ready for virtual tour</p>
+                <span class="activity-time">1 day ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Insights -->
+      <section class="insights-section">
+        <h2>Content Insights</h2>
+        <div class="insights-grid">
+          <div class="insight-card">
+            <i class="fas fa-eye"></i>
+            <div class="insight-info">
+              <span class="insight-number">1,200</span>
+              <span class="insight-label">Views This Week</span>
+            </div>
+          </div>
+          <div class="insight-card">
+            <i class="fas fa-thumbs-up"></i>
+            <div class="insight-info">
+              <span class="insight-number">320</span>
+              <span class="insight-label">Likes</span>
+            </div>
+          </div>
+          <div class="insight-card">
+            <i class="fas fa-comments"></i>
+            <div class="insight-info">
+              <span class="insight-number">45</span>
+              <span class="insight-label">Feedbacks</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script src="../js/home.js"></script>
+</body>
+</html>

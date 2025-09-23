@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Cultural Enthusiast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/about.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-monument"></i> Cultural Enthusiast</h2>
+                <p>Explore World Heritage</p>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="home.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-landmark"></i> Heritage Sites</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-vr-cardboard"></i> Virtual Tours</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-lightbulb"></i> Travel Tips</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-comments"></i> Community</a></li>
+                <li class="active"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <h1>About Cultural Enthusiast</h1>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span>Welcome, Explorer!</span>
+                </div>
+            </header>
+
+            <!-- Mission Section -->
+            <section class="mission-section">
+                <div class="mission-content">
+                    <div class="mission-text">
+                        <h2>Our Mission</h2>
+                        <p>Cultural Enthusiast is dedicated to preserving and promoting world heritage through digital innovation. We believe that cultural heritage belongs to everyone and should be accessible to all, regardless of geographical or physical limitations.</p>
+                        <p>Our platform brings together cultural enthusiasts, historians, archaeologists, and travelers to create a vibrant community dedicated to exploring and preserving our shared human legacy.</p>
+                    </div>
+                    <div class="mission-image">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cultural Heritage">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="about-stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>5+</h3>
+                        <p>Years of Service</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <h3>10K+</h3>
+                        <p>Active Members</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-globe-americas"></i>
+                        <h3>60+</h3>
+                        <p>Countries Covered</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-landmark"></i>
+                        <h3>500+</h3>
+                        <p>Heritage Sites</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="team-section">
+                <h2>Our Team</h2>
+                <p class="section-subtitle">Meet the passionate individuals behind Cultural Enthusiast</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Sarah Chen">
+                        </div>
+                        <div class="member-info">
+                            <h4>Dr. Sarah Chen</h4>
+                            <span class="member-role">Founder & Cultural Historian</span>
+                            <p>PhD in Cultural Anthropology with 15 years of experience in heritage preservation.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Maria Rodriguez">
+                        </div>
+                        <div class="member-info">
+                            <h4>Maria Rodriguez</h4>
+                            <span class="member-role">Digital Archivist</span>
+                            <p>Specialist in digital preservation and 3D modeling of cultural artifacts.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="James Wilson">
+                        </div>
+                        <div class="member-info">
+                            <h4>James Wilson</h4>
+                            <span class="member-role">VR Development Lead</span>
+                            <p>Expert in virtual reality technologies and immersive cultural experiences.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Values Section -->
+            <section class="values-section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Preservation</h4>
+                        <p>We are committed to preserving cultural heritage for future generations through digital archiving and documentation.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-universal-access"></i>
+                        <h4>Accessibility</h4>
+                        <p>Making cultural heritage accessible to everyone, regardless of physical or geographical limitations.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Collaboration</h4>
+                        <p>Working with local communities, experts, and institutions to ensure authentic representation.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Education</h4>
+                        <p>Promoting cultural understanding and education through engaging content and experiences.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Partners Section -->
+            <section class="partners-section">
+                <h2>Our Partners</h2>
+                <p class="section-subtitle">Collaborating with leading cultural institutions worldwide</p>
+                
+                <div class="partners-grid">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/UNESCO_logo.svg/320px-UNESCO_logo.svg.png" alt="UNESCO">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Wikipedia_logo_%28en%29.svg/320px-Wikipedia_logo_%28en%29.svg.png" alt="Wikipedia">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/World_Monuments_Fund_logo.svg/320px-World_Monuments_Fund_logo.svg.png" alt="World Monuments Fund">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Google_Cultural_Institute_logo.svg/320px-Google_Cultural_Institute_logo.svg.png" alt="Google Cultural Institute">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Get In Touch</h2>
+                        <p>Have questions or want to collaborate? We'd love to hear from you.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>info@culturalenthusiast.org</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Office</h4>
+                                    <p>123 Heritage Street, Culture City</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-send">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/about.js"></script>
+</body>
+</html>

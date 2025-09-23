@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Enthusiast - Explore World Heritage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-monument"></i> Cultural Enthusiast</h2>
+                <p>Explore World Heritage</p>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="active"><a href="home.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-landmark"></i> Heritage Sites</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-vr-cardboard"></i> Virtual Tours</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-lightbulb"></i> Travel Tips</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-comments"></i> Community</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <h1>Discover Cultural Heritage</h1>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span>Welcome, Explorer!</span>
+                </div>
+            </header>
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Discover the World's Cultural Treasures</h2>
+                    <p>Explore ancient monuments, UNESCO sites, and cultural heritage from around the globe</p>
+                    <div class="hero-search">
+                        <input type="text" placeholder="Search heritage sites...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-landmark"></i>
+                        <div class="stat-info">
+                            <h3>500+</h3>
+                            <p>Heritage Sites</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-globe-americas"></i>
+                        <div class="stat-info">
+                            <h3>60+</h3>
+                            <p>Countries</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>10,000+</h3>
+                            <p>Community Members</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-camera"></i>
+                        <div class="stat-info">
+                            <h3>15,000+</h3>
+                            <p>Photos Shared</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Sites Section -->
+            <section class="featured-sites">
+                <div class="section-header">
+                    <h3>Featured Heritage Sites</h3>
+                    <a href="heritage-sites.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="sites-grid">
+                    <div class="site-card">
+                        <div class="site-image">
+                            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Taj Mahal">
+                            <span class="site-badge">UNESCO</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Taj Mahal</h4>
+                            <p class="site-location">Agra, India</p>
+                            <p class="site-desc">Iconic white marble mausoleum and symbol of eternal love</p>
+                            <div class="site-meta">
+                                <span><i class="fas fa-clock"></i> 17th Century</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Mughal Architecture</span>
+                            </div>
+                            <a href="site-detail.html" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+
+                    <div class="site-card">
+                        <div class="site-image">
+                            <img src="https://images.unsplash.com/photo-1520583457224-aee11bad5112?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Machu Picchu">
+                            <span class="site-badge">UNESCO</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Machu Picchu</h4>
+                            <p class="site-location">Peru</p>
+                            <p class="site-desc">Ancient Incan citadel nestled in the Andes Mountains</p>
+                            <div class="site-meta">
+                                <span><i class="fas fa-clock"></i> 15th Century</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Incan Architecture</span>
+                            </div>
+                            <a href="site-detail.html" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+
+                    <div class="site-card">
+                        <div class="site-image">
+                            <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Eiffel Tower">
+                            <span class="site-badge">UNESCO</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Eiffel Tower</h4>
+                            <p class="site-location">Paris, France</p>
+                            <p class="site-desc">Iconic iron lattice tower and symbol of France</p>
+                            <div class="site-meta">
+                                <span><i class="fas fa-clock"></i> 1889</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Industrial Architecture</span>
+                            </div>
+                            <a href="site-detail.html" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories">
+                <div class="section-header">
+                    <h3>Explore by Category</h3>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <i class="fas fa-place-of-worship"></i>
+                        <h4>Temples</h4>
+                        <p>Ancient religious structures</p>
+                        <span class="count">128 Sites</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-fort-awesome"></i>
+                        <h4>Forts</h4>
+                        <p>Historical military architecture</p>
+                        <span class="count">76 Sites</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-landmark"></i>
+                        <h4>Monuments</h4>
+                        <p>Iconic cultural landmarks</p>
+                        <span class="count">94 Sites</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-archway"></i>
+                        <h4>Archaeological Sites</h4>
+                        <p>Ancient ruins and excavations</p>
+                        <span class="count">63 Sites</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Virtual Tours Preview -->
+            <section class="virtual-tours-preview">
+                <div class="section-header">
+                    <h3>Virtual Reality Tours</h3>
+                    <a href="virtual-tours.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="tours-grid">
+                    <div class="tour-card">
+                        <div class="tour-image">
+                            <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Roman Colosseum">
+                            <div class="tour-overlay">
+                                <i class="fas fa-vr-cardboard"></i>
+                                <span>VR Ready</span>
+                            </div>
+                        </div>
+                        <div class="tour-info">
+                            <h4>Roman Colosseum</h4>
+                            <p>Step into ancient Rome with our immersive VR experience</p>
+                            <div class="tour-stats">
+                                <span><i class="fas fa-clock"></i> 45 min</span>
+                                <span><i class="fas fa-users"></i> 3D Tour</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tour-card">
+                        <div class="tour-image">
+                            <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Great Wall of China">
+                            <div class="tour-overlay">
+                                <i class="fas fa-vr-cardboard"></i>
+                                <span>VR Ready</span>
+                            </div>
+                        </div>
+                        <div class="tour-info">
+                            <h4>Great Wall of China</h4>
+                            <p>Walk along the ancient wonder from anywhere in the world</p>
+                            <div class="tour-stats">
+                                <span><i class="fas fa-clock"></i> 60 min</span>
+                                <span><i class="fas fa-users"></i> Guided Tour</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community Section -->
+            <section class="community">
+                <div class="community-content">
+                    <h3>Join Our Community</h3>
+                    <p>Share your experiences, photos, and knowledge with fellow enthusiasts</p>
+                    <a href="chat.html" class="btn-community">Join Discussion</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/home.js"></script>
+</body>
+</html>

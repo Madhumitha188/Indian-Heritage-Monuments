@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Admin</title>
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Admin Panel</h2>
+                <p>Profile Management</p>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="home.html" class="nav-link">Dashboard</a></li>
+                <li><a href="" class="nav-link">Answers Inbox</a></li>
+                <li><a href="" class="nav-link">Heritage Sites</a></li>
+                <li><a href="" class="nav-link">User Management</a></li>
+                <li><a href="" class="nav-link">Discussions</a></li>
+                <li><a href="" class="nav-link">System Health</a></li>
+                <li><a href="profile.html" class="nav-link active">Profile</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>My Profile</h1>
+                <div class="header-actions">
+                    <button class="btn-secondary">Export My Data</button>
+                    <button class="btn-danger">Delete Account</button>
+                </div>
+            </header>
+
+            <div class="profile-container">
+                <div class="profile-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <div class="avatar-placeholder" id="avatarInitials">A</div>
+                            <button class="avatar-upload" onclick="triggerAvatarUpload()">📷</button>
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="profileName">Admin User</h2>
+                            <p class="profile-role" id="profileRole">Administrator</p>
+                            <p class="profile-email" id="profileEmail">admin@heritage.com</p>
+                            <p class="profile-joined" id="profileJoined">Member since January 2024</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-stats">
+                        <h3>Activity Summary</h3>
+                        <div class="stat-item">
+                            <span class="stat-label">Sites Managed</span>
+                            <span class="stat-value" id="statSites">45</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Answers Reviewed</span>
+                            <span class="stat-value" id="statAnswers">128</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Users Managed</span>
+                            <span class="stat-value" id="statUsers">1,234</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Last Active</span>
+                            <span class="stat-value" id="statLastActive">2 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-content">
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="openTab('personal')">Personal Info</button>
+                        <button class="tab-btn" onclick="openTab('security')">Security</button>
+                        <button class="tab-btn" onclick="openTab('preferences')">Preferences</button>
+                        <button class="tab-btn" onclick="openTab('activity')">Activity Log</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Personal Info Tab -->
+                        <div id="personal" class="tab-pane active">
+                            <form id="personalForm" class="profile-form">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio</label>
+                                    <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn-secondary" onclick="resetForm()">Reset</button>
+                                    <button type="submit" class="btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Security Tab -->
+                        <div id="security" class="tab-pane">
+                            <div class="security-section">
+                                <h3>Change Password</h3>
+                                <form id="passwordForm" class="profile-form">
+                                    <div class="form-group">
+                                        <label for="currentPassword">Current Password</label>
+                                        <input type="password" id="currentPassword" name="currentPassword" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newPassword">New Password</label>
+                                        <input type="password" id="newPassword" name="newPassword" required>
+                                        <div class="password-strength" id="passwordStrength"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirm New Password</label>
+                                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                    </div>
+                                    <button type="submit" class="btn-primary">Update Password</button>
+                                </form>
+                            </div>
+
+                            <div class="security-section">
+                                <h3>Two-Factor Authentication</h3>
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>2FA Status</h4>
+                                        <p>Add an extra layer of security to your account</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="twoFactorToggle">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="security-section">
+                                <h3>Active Sessions</h3>
+                                <div class="sessions-list" id="sessionsList">
+                                    <!-- Sessions will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preferences Tab -->
+                        <div id="preferences" class="tab-pane">
+                            <div class="preferences-section">
+                                <h3>Notification Preferences</h3>
+                                <div class="preference-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="notifEmail" checked>
+                                        <span class="checkmark"></span>
+                                        Email notifications
+                                    </label>
+                                </div>
+                                <div class="preference-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="notifAnswers" checked>
+                                        <span class="checkmark"></span>
+                                        New answers for review
+                                    </label>
+                                </div>
+                                <div class="preference-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="notifReports" checked>
+                                        <span class="checkmark"></span>
+                                        Reported content alerts
+                                    </label>
+                                </div>
+                                <div class="preference-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="notifSystem">
+                                        <span class="checkmark"></span>
+                                        System maintenance alerts
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="preferences-section">
+                                <h3>Display Preferences</h3>
+                                <div class="form-group">
+                                    <label for="themeSelect">Theme</label>
+                                    <select id="themeSelect" onchange="changeTheme(this.value)">
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                        <option value="auto">Auto (System)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resultsPerPage">Results per page</label>
+                                    <select id="resultsPerPage">
+                                        <option value="10">10</option>
+                                        <option value="25" selected>25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="btn-primary" onclick="savePreferences()">Save Preferences</button>
+                        </div>
+
+                        <!-- Activity Log Tab -->
+                        <div id="activity" class="tab-pane">
+                            <div class="activity-filters">
+                                <select id="activityTypeFilter" onchange="filterActivity()">
+                                    <option value="all">All Activities</option>
+                                    <option value="login">Logins</option>
+                                    <option value="moderation">Moderation</option>
+                                    <option value="settings">Settings Changes</option>
+                                    <option value="system">System Actions</option>
+                                </select>
+                                <input type="date" id="activityDateFilter" onchange="filterActivity()">
+                            </div>
+                            <div class="activity-log" id="activityLog">
+                                <!-- Activity log will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Delete Account Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3>Delete Account</h3>
+            <p>This action cannot be undone. All your data will be permanently deleted.</p>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+                <button class="btn-danger" onclick="deleteAccount()">Delete Account</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/profile.js"></script>
+</body>
+</html>
