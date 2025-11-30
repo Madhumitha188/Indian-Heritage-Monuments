@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Content - Content Creator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/upload.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-pencil-alt"></i> Content Creator</h2>
+                <p>Create & Share</p>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="home.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="active"><a href="upload.html" class="nav-link"><i class="fas fa-upload"></i> Upload Content</a></li>
+                <li><a href="virtual.html" class="nav-link"><i class="fas fa-vr-cardboard"></i> Virtual Tours</a></li>
+                <li><a href="multi.html" class="nav-link"><i class="fas fa-photo-video"></i> Multimedia Resources</a></li>
+                <li><a href="profile.html" class="nav-link"><i class="fas fa-user-circle"></i> Profile</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-content">
+                    <h1>Upload Content</h1>
+                    <p>Share educational materials, images, videos, and cultural resources</p>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <span>Content Creator</span>
+                </div>
+            </header>
+
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-container">
+                    <!-- Upload Tabs -->
+                    <div class="upload-tabs">
+                        <button class="tab-btn active" data-tab="images" onclick="switchTab('images')">
+                            <i class="fas fa-image"></i> Images
+                        </button>
+                        <button class="tab-btn" data-tab="videos" onclick="switchTab('videos')">
+                            <i class="fas fa-video"></i> Videos
+                        </button>
+                        <button class="tab-btn" data-tab="documents" onclick="switchTab('documents')">
+                            <i class="fas fa-file-alt"></i> Documents
+                        </button>
+                        <button class="tab-btn" data-tab="vr-content" onclick="switchTab('vr-content')">
+                            <i class="fas fa-vr-cardboard"></i> VR Content
+                        </button>
+                    </div>
+
+                    <!-- Upload Forms -->
+                    <div class="upload-forms">
+                        <!-- Images Tab -->
+                        <div class="tab-content active" id="images-tab">
+                            <div class="upload-card">
+                                <div class="upload-area" id="imageUploadArea">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <h3>Upload Images</h3>
+                                    <p>Drag & drop images here or click to browse</p>
+                                    <input type="file" id="imageInput" accept="image/*" multiple hidden>
+                                    <button class="btn-primary" onclick="document.getElementById('imageInput').click()">
+                                        Select Images
+                                    </button>
+                                </div>
+                                <div class="upload-details">
+                                    <h4>Image Requirements</h4>
+                                    <ul>
+                                        <li>Supported formats: JPG, PNG, WebP</li>
+                                        <li>Maximum file size: 10MB per image</li>
+                                        <li>Recommended resolution: 1920x1080 or higher</li>
+                                        <li>Add descriptive captions for better accessibility</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Videos Tab -->
+                        <div class="tab-content" id="videos-tab">
+                            <div class="upload-card">
+                                <div class="upload-area" id="videoUploadArea">
+                                    <i class="fas fa-video"></i>
+                                    <h3>Upload Videos</h3>
+                                    <p>Drag & drop videos here or click to browse</p>
+                                    <input type="file" id="videoInput" accept="video/*" multiple hidden>
+                                    <button class="btn-primary" onclick="document.getElementById('videoInput').click()">
+                                        Select Videos
+                                    </button>
+                                </div>
+                                <div class="upload-details">
+                                    <h4>Video Requirements</h4>
+                                    <ul>
+                                        <li>Supported formats: MP4, MOV, AVI</li>
+                                        <li>Maximum file size: 100MB per video</li>
+                                        <li>Maximum duration: 10 minutes</li>
+                                        <li>Add subtitles for better accessibility</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Documents Tab -->
+                        <div class="tab-content" id="documents-tab">
+                            <div class="upload-card">
+                                <div class="upload-area" id="documentUploadArea">
+                                    <i class="fas fa-file-alt"></i>
+                                    <h3>Upload Documents</h3>
+                                    <p>Drag & drop documents here or click to browse</p>
+                                    <input type="file" id="documentInput" accept=".pdf,.doc,.docx,.txt" multiple hidden>
+                                    <button class="btn-primary" onclick="document.getElementById('documentInput').click()">
+                                        Select Documents
+                                    </button>
+                                </div>
+                                <div class="upload-details">
+                                    <h4>Document Requirements</h4>
+                                    <ul>
+                                        <li>Supported formats: PDF, DOC, DOCX, TXT</li>
+                                        <li>Maximum file size: 20MB per document</li>
+                                        <li>Add proper titles and descriptions</li>
+                                        <li>Ensure content is culturally accurate</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VR Content Tab -->
+                        <div class="tab-content" id="vr-content-tab">
+                            <div class="upload-card">
+                                <div class="upload-area" id="vrUploadArea">
+                                    <i class="fas fa-vr-cardboard"></i>
+                                    <h3>Upload VR Content</h3>
+                                    <p>Upload 360° images, VR tours, or 3D models</p>
+                                    <input type="file" id="vrInput" accept=".jpg,.png,.obj,.glb,.gltf" multiple hidden>
+                                    <button class="btn-primary" onclick="document.getElementById('vrInput').click()">
+                                        Select VR Files
+                                    </button>
+                                </div>
+                                <div class="upload-details">
+                                    <h4>VR Content Requirements</h4>
+                                    <ul>
+                                        <li>360° images: Equirectangular format</li>
+                                        <li>3D models: OBJ, GLB, or GLTF formats</li>
+                                        <li>Maximum file size: 50MB per file</li>
+                                        <li>Include metadata for proper rendering</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Metadata Form -->
+                    <div class="metadata-form">
+                        <h3>Content Information</h3>
+                        <form id="contentForm">
+                            <div class="form-group">
+                                <label for="contentTitle">Title *</label>
+                                <input type="text" id="contentTitle" required placeholder="Enter content title">
+                            </div>
+                            <div class="form-group">
+                                <label for="contentDescription">Description *</label>
+                                <textarea id="contentDescription" required placeholder="Describe your content..." rows="4"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contentCategory">Category *</label>
+                                    <select id="contentCategory" required>
+                                        <option value="">Select category</option>
+                                        <option value="architecture">Architecture</option>
+                                        <option value="history">History</option>
+                                        <option value="art">Art</option>
+                                        <option value="culture">Culture</option>
+                                        <option value="nature">Nature</option>
+                                        <option value="religion">Religion</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contentTags">Tags</label>
+                                    <input type="text" id="contentTags" placeholder="Add tags (comma separated)">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contentLocation">Location</label>
+                                <input type="text" id="contentLocation" placeholder="Where was this content created?">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="contentPublic"> Make this content public
+                                </label>
+                                <small>Public content will be visible to all users</small>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Upload Progress -->
+                    <div class="upload-progress" id="uploadProgress" style="display: none;">
+                        <h3>Uploading Files</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-info">
+                            <span id="progressText">0%</span>
+                            <span id="fileCount">0 files</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn-secondary" onclick="clearForm()">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                        <button class="btn-primary" onclick="uploadContent()" id="uploadBtn">
+                            <i class="fas fa-upload"></i> Upload Content
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Uploads -->
+            <section class="recent-uploads">
+                <h2>Recent Uploads</h2>
+                <div class="uploads-grid" id="uploadsGrid">
+                    <!-- Uploaded items will be populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload Successful!</h3>
+                <button class="close-modal" onclick="closeModal('successModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p>Your content has been uploaded successfully and is now being processed.</p>
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="closeModal('successModal')">
+                        Upload More
+                    </button>
+                    <button class="btn-primary" onclick="viewContent()">
+                        View Content
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/upload.js"></script>
+</body>
+</html>

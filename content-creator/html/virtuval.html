@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Tours - Content Creator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/virtuval.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-pencil-alt"></i> Content Creator</h2>
+                <p>Create & Share</p>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="home.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="upload.html" class="nav-link"><i class="fas fa-upload"></i> Upload Content</a></li>
+                <li class="active"><a href="virtual.html" class="nav-link"><i class="fas fa-vr-cardboard"></i> Virtual Tours</a></li>
+                <li><a href="multi.html" class="nav-link"><i class="fas fa-photo-video"></i> Multimedia Resources</a></li>
+                <li><a href="profile.html" class="nav-link"><i class="fas fa-user-circle"></i> Profile</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-content">
+                    <h1>Virtual Tours</h1>
+                    <p>Create and manage immersive 360° virtual tour experiences</p>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <span>Content Creator</span>
+                </div>
+            </header>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <div class="action-cards">
+                    <div class="action-card" onclick="createNewTour()">
+                        <div class="action-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <h3>Create New Tour</h3>
+                        <p>Start building a new virtual tour from scratch</p>
+                    </div>
+                    <div class="action-card" onclick="openTourTemplates()">
+                        <div class="action-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Use Template</h3>
+                        <p>Choose from pre-designed tour templates</p>
+                    </div>
+                    <div class="action-card" onclick="importTour()">
+                        <div class="action-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>Import Tour</h3>
+                        <p>Import existing tour data or 360° content</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tour Builder Section -->
+            <section class="tour-builder">
+                <div class="builder-header">
+                    <h2>Tour Builder</h2>
+                    <div class="builder-controls">
+                        <button class="btn-secondary" onclick="saveTourDraft()">
+                            <i class="fas fa-save"></i> Save Draft
+                        </button>
+                        <button class="btn-primary" onclick="publishTour()">
+                            <i class="fas fa-rocket"></i> Publish Tour
+                        </button>
+                    </div>
+                </div>
+
+                <div class="builder-container">
+                    <!-- Left Panel - Tour Structure -->
+                    <div class="builder-panel left-panel">
+                        <h3>Tour Structure</h3>
+                        <div class="tour-scenes" id="tourScenes">
+                            <!-- Scenes will be populated by JavaScript -->
+                        </div>
+                        <button class="btn-add-scene" onclick="addNewScene()">
+                            <i class="fas fa-plus"></i> Add Scene
+                        </button>
+                    </div>
+
+                    <!-- Center Panel - Preview -->
+                    <div class="builder-panel center-panel">
+                        <div class="tour-preview">
+                            <div class="preview-header">
+                                <h3>Tour Preview</h3>
+                                <div class="preview-controls">
+                                    <button class="btn-control" onclick="togglePreview()">
+                                        <i class="fas fa-expand"></i> Fullscreen
+                                    </button>
+                                    <button class="btn-control" onclick="testTour()">
+                                        <i class="fas fa-play"></i> Test Tour
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="preview-container" id="previewContainer">
+                                <div class="preview-placeholder">
+                                    <i class="fas fa-vr-cardboard"></i>
+                                    <h4>Tour Preview</h4>
+                                    <p>Add scenes to start building your virtual tour</p>
+                                    <button class="btn-primary" onclick="addNewScene()">
+                                        <i class="fas fa-plus"></i> Add First Scene
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel - Scene Properties -->
+                    <div class="builder-panel right-panel">
+                        <h3>Scene Properties</h3>
+                        <div class="properties-form" id="propertiesForm">
+                            <div class="property-group">
+                                <label for="sceneTitle">Scene Title</label>
+                                <input type="text" id="sceneTitle" placeholder="Enter scene title">
+                            </div>
+                            <div class="property-group">
+                                <label for="sceneImage">360° Image</label>
+                                <div class="image-upload" id="sceneImageUpload">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Upload 360° Image</p>
+                                    <input type="file" id="sceneImageInput" accept="image/*" hidden>
+                                    <button class="btn-small" onclick="document.getElementById('sceneImageInput').click()">
+                                        Choose File
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="property-group">
+                                <label for="sceneDescription">Description</label>
+                                <textarea id="sceneDescription" placeholder="Describe this scene..." rows="3"></textarea>
+                            </div>
+                            <div class="property-group">
+                                <label for="sceneAudio">Audio Narration</label>
+                                <div class="audio-upload" id="sceneAudioUpload">
+                                    <i class="fas fa-microphone"></i>
+                                    <p>Add Audio Guide</p>
+                                    <input type="file" id="sceneAudioInput" accept="audio/*" hidden>
+                                    <button class="btn-small" onclick="document.getElementById('sceneAudioInput').click()">
+                                        Upload Audio
+                                    </button>
+                                </div>
+                            </div>
+                            <div class property-group>
+                                <label>Hotspots</label>
+                                <div class="hotspots-list" id="hotspotsList">
+                                    <!-- Hotspots will be populated by JavaScript -->
+                                </div>
+                                <button class="btn-small" onclick="addHotspot()">
+                                    <i class="fas fa-plus"></i> Add Hotspot
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Existing Tours -->
+            <section class="existing-tours">
+                <div class="section-header">
+                    <h2>Your Virtual Tours</h2>
+                    <div class="view-controls">
+                        <button class="view-btn active" data-view="grid" onclick="changeView('grid')">
+                            <i class="fas fa-th"></i> Grid
+                        </button>
+                        <button class="view-btn" data-view="list" onclick="changeView('list')">
+                            <i class="fas fa-list"></i> List
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tours-grid" id="toursGrid">
+                    <!-- Tours will be populated by JavaScript -->
+                </div>
+
+                <div class="tours-list" id="toursList" style="display: none;">
+                    <!-- List view will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Tour Templates -->
+            <section class="tour-templates">
+                <h2>Tour Templates</h2>
+                <div class="templates-grid">
+                    <div class="template-card" onclick="useTemplate('cultural-heritage')">
+                        <div class="template-preview">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div class="template-info">
+                            <h3>Cultural Heritage</h3>
+                            <p>Pre-designed template for historical sites and monuments</p>
+                            <div class="template-features">
+                                <span><i class="fas fa-image"></i> 5 Scenes</span>
+                                <span><i class="fas fa-hotspot"></i> 8 Hotspots</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-card" onclick="useTemplate('museum')">
+                        <div class="template-preview">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="template-info">
+                            <h3>Museum Tour</h3>
+                            <p>Template optimized for museum exhibitions and galleries</p>
+                            <div class="template-features">
+                                <span><i class="fas fa-image"></i> 8 Scenes</span>
+                                <span><i class="fas fa-hotspot"></i> 12 Hotspots</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-card" onclick="useTemplate('architecture')">
+                        <div class="template-preview">
+                            <i class="fas fa-archway"></i>
+                        </div>
+                        <div class="template-info">
+                            <h3>Architecture</h3>
+                            <p>Showcase architectural wonders with this template</p>
+                            <div class="template-features">
+                                <span><i class="fas fa-image"></i> 6 Scenes</span>
+                                <span><i class="fas fa-hotspot"></i> 10 Hotspots</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Create Tour Modal -->
+    <div id="createTourModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Virtual Tour</h3>
+                <button class="close-modal" onclick="closeModal('createTourModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="newTourForm">
+                    <div class="form-group">
+                        <label for="tourTitle">Tour Title *</label>
+                        <input type="text" id="tourTitle" required placeholder="Enter tour title">
+                    </div>
+                    <div class="form-group">
+                        <label for="tourDescription">Description</label>
+                        <textarea id="tourDescription" placeholder="Describe your virtual tour..." rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tourCategory">Category *</label>
+                            <select id="tourCategory" required>
+                                <option value="">Select category</option>
+                                <option value="cultural">Cultural Heritage</option>
+                                <option value="museum">Museum</option>
+                                <option value="architecture">Architecture</option>
+                                <option value="religious">Religious Sites</option>
+                                <option value="natural">Natural Wonders</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tourLanguage">Language</label>
+                            <select id="tourLanguage">
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="fr">French</option>
+                                <option value="de">German</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="tourPublic" checked> Make tour public
+                        </label>
+                        <small>Public tours are visible to all users</small>
+                    </div>
+                </form>
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="closeModal('createTourModal')">
+                        Cancel
+                    </button>
+                    <button class="btn-primary" onclick="createTour()">
+                        <i class="fas fa-plus"></i> Create Tour
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hotspot Editor Modal -->
+    <div id="hotspotModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Hotspot</h3>
+                <button class="close-modal" onclick="closeModal('hotspotModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="hotspotForm">
+                    <div class="form-group">
+                        <label for="hotspotTitle">Hotspot Title *</label>
+                        <input type="text" id="hotspotTitle" required placeholder="Enter hotspot title">
+                    </div>
+                    <div class="form-group">
+                        <label for="hotspotType">Hotspot Type</label>
+                        <select id="hotspotType">
+                            <option value="info">Information</option>
+                            <option value="link">Scene Link</option>
+                            <option value="media">Media Popup</option>
+                            <option value="audio">Audio Clip</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hotspotContent">Content</label>
+                        <textarea id="hotspotContent" placeholder="Enter hotspot content..." rows="3"></textarea>
+                    </div>
+                    <div class="form-group" id="targetSceneGroup" style="display: none;">
+                        <label for="targetScene">Target Scene</label>
+                        <select id="targetScene">
+                            <!-- Scenes will be populated by JavaScript -->
+                        </select>
+                    </div>
+                </form>
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="closeModal('hotspotModal')">
+                        Cancel
+                    </button>
+                    <button class="btn-primary" onclick="saveHotspot()">
+                        <i class="fas fa-save"></i> Save Hotspot
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/virtual.js"></script>
+</body>
+</html>
